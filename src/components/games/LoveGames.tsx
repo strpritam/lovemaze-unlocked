@@ -98,8 +98,8 @@ export function CatchHearts({ onWin }: GameProps) {
 const QUIZ = [
   {
     q: "What is my honest reaction when you say 'we need to talk'?",
-    options: ["Calm and collected", "Internal panic, external smile", "I ignore it"],
-    answer: 1,
+    options: ["Calm and try to talk", " Ignoring and panic, external smile", "I ignore it"],
+    answer: 0,
   },
   {
     q: "Who apologises first after a pointless argument?",
@@ -108,17 +108,17 @@ const QUIZ = [
   },
   {
     q: "What do I secretly love most?",
-    options: ["Your cooking", "Your laugh when you snort", "Your playlist"],
-    answer: 1,
+    options: ["Your cooking skills", "your cute talks", "Your Lips", "Your hairs"],
+    answer: 2,
   },
   {
-    q: "How many photos of you are on my phone?",
-    options: ["A normal amount", "Concerning amount", "Zero, I'm mysterious"],
+    q: "What i say most when you go for bath?",
+    options: ["Okay Go", "Invitition or Information", "Jaldi aana Love"],
     answer: 1,
   },
   {
     q: "What's my idea of a perfect night?",
-    options: ["Fancy restaurant", "You, bad TV, and zero plans", "Party"],
+    options: ["Sleep Sleep Sleep", "Date night at Hotel Room", "Dance and Dance"],
     answer: 1,
   },
 ];
@@ -202,7 +202,7 @@ export function WhackADoubt({ onWin }: GameProps) {
               setRunning(true);
             }}
           >
-            {time <= 0 ? "Try again" : "Start smashing"}
+            {time <= 0 ? "Aww Baby Try Again" : "Start smashing"}
           </GameButton>
         ) : null
       }
@@ -291,7 +291,7 @@ export function RockPaperKisses({ onWin }: GameProps) {
 
 /* ---------------------------------- 10. Typing race ----------------------------------- */
 
-const SENTENCE = "I love you more than you love pretending you are not blushing";
+const SENTENCE = "I love you more than you love and It is going to be Increase day by day Understood";
 
 export function TypingRace({ onWin }: GameProps) {
   const [value, setValue] = useState("");
@@ -320,7 +320,7 @@ export function TypingRace({ onWin }: GameProps) {
   return (
     <GameShell
       instruction="Type the sentence exactly before the timer hits zero."
-      status={running ? `${time}s left` : time <= 0 ? "Time's up 💔" : "Ready?"}
+      status={running ? `${time}s left` : time <= 0 ? "Time's up Honey💔" : "Ready?"}
       footer={
         !running ? (
           <GameButton
@@ -330,7 +330,7 @@ export function TypingRace({ onWin }: GameProps) {
               setRunning(true);
             }}
           >
-            {time <= 0 ? "Try again" : "Start typing"}
+            {time <= 0 ? "Try again Darling" : "Start typing"}
           </GameButton>
         ) : null
       }

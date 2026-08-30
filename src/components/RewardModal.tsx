@@ -37,7 +37,7 @@ export function RewardModal({
               src={challenge.image}
               alt={challenge.rewardTitle}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
           </div>

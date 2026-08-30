@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A playful gift: solve five puzzles and five silly love games, and unlock a handwritten note with a photo for each one.",
+          "A playful gift: solve five puzzles and five silly love games, and unlock a handwritten note loveydoby.",
       },
       { property: "og:title", content: "For You — 10 Little Games, 10 Love Notes" },
       {
@@ -70,7 +70,7 @@ function Index() {
           alt=""
           width={1920}
           height={1080}
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-contain object-center opacity-40"
         />
         <div
           className="absolute inset-0"
@@ -97,18 +97,18 @@ function Index() {
           <h1 className="mt-5 font-serif text-5xl leading-[1.05] sm:text-7xl">
             Ten little challenges,
             <br />
-            <span className="text-gradient">ten love notes for you</span>
+            <span className="text-gradient">ten love notes for My Honey</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-foreground/75">
-            Five puzzles. Five ridiculous love games. Every time you win, something I wrote for you
-            unlocks — with a photo attached. No shortcuts, no cheating (I'll know).
+            Five puzzles. Five ridiculous love games. Every time you win, something special you get so be ready
+            — No shortcuts, no cheating (I'll know).
           </p>
           <a
             href="#challenges"
             className="mt-9 inline-flex animate-pulse-glow items-center gap-2 rounded-full px-8 py-4 font-medium text-primary-foreground"
             style={{ background: "var(--gradient-romance)" }}
           >
-            Start unlocking 💘
+            Touch me here Badly to start honey 💘
           </a>
           <p className="mt-6 text-sm text-muted-foreground">
             {unlocked.length} of {challenges.length} notes unlocked
@@ -216,7 +216,7 @@ function Group({
                   loading="lazy"
                   width={768}
                   height={768}
-                  className={`h-full w-full object-cover transition-all duration-700 group-hover:scale-110 ${
+                  className={`h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 ${
                     done ? "" : "blur-md brightness-50"
                   }`}
                 />

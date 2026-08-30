@@ -137,9 +137,9 @@ export function MemoryMatch({ onWin }: GameProps) {
 /* ---------------------------------- 3. Word scramble ---------------------------------- */
 
 const WORDS = [
-  { word: "BEAUTIFUL", hint: "What you are, even at 7am, unfairly." },
-  { word: "FOREVER", hint: "How long I plan on being annoying next to you." },
-  { word: "HOMESICK", hint: "What I feel when you're not around." },
+  { word: "BEAUTIFULANDHOT", hint: "What you are, even at 7am, unfairly." },
+  { word: "FOREVERHONEY", hint: "How long I plan on being annoying next to you." },
+  { word: "TANHAAIYA", hint: "What I feel when you're not around." },
 ];
 
 function scramble(w: string) {
@@ -190,8 +190,8 @@ export function WordScramble({ onWin }: GameProps) {
 const RIDDLES = [
   { clue: "🎬 + 🍿 + 😴", options: ["Movie night where I fall asleep", "Cinema date", "Popcorn recipe"], answer: 0 },
   { clue: "📱 + 🕐 + 💬", options: ["Work call", "Our 2am talks", "Alarm clock"], answer: 1 },
-  { clue: "🚗 + 🎶 + 🎤", options: ["Traffic jam", "Car karaoke", "Road trip nap"], answer: 1 },
-  { clue: "😤 + 5️⃣ + 😘", options: ["Gym set", "Angry for 5 minutes, then kisses", "Countdown"], answer: 1 },
+  { clue: "🚗 + 🎶 + 🎤", options: ["Traffic jam", "Car drive with your lovely Voice", "Road trip nap"], answer: 1 },
+  { clue: "😤 + 5️⃣ + 😘", options: ["Gym set", "Angry for some minutes, then melted ", "Countdown"], answer: 1 },
 ];
 
 export function EmojiRiddles({ onWin }: GameProps) {
