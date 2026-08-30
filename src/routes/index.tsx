@@ -32,6 +32,9 @@ function Index() {
   const [unlocked, setUnlocked] = useState<string[]>([]);
   const [active, setActive] = useState<Challenge | null>(null);
   const [reward, setReward] = useState<Challenge | null>(null);
+  const [authed, setAuthed] = useState<boolean | null>(null);
+  const [passValue, setPassValue] = useState("");
+  const [passError, setPassError] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -39,6 +42,16 @@ function Index() {
       if (saved) setUnlocked(JSON.parse(saved));
     } catch {
       /* ignore */
+    }
+  }, []);
+
+  // initialize auth state on client only
+  useEffect(() => {
+    try {
+      const ok = localStorage.getItem("site_authed") === "true";
+      setAuthed(ok);
+    } catch {
+      setAuthed(false);
     }
   }, []);
 
@@ -51,6 +64,19 @@ function Index() {
     }
   };
 
+  const handlePassSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    setPassError(null);
+    if (passValue === "foryou") {
+      try {
+        localStorage.setItem("site_authed", "true");
+      } catch {}
+      setAuthed(true);
+    } else {
+      setPassError("Incorrect passcode");
+    }
+  };
+
   const handleWin = () => {
     if (!active) return;
     if (!unlocked.includes(active.id)) persist([...unlocked, active.id]);
@@ -60,6 +86,36 @@ function Index() {
 
   const puzzles = challenges.filter((c) => c.kind === "puzzle");
   const games = challenges.filter((c) => c.kind === "game");
+
+  if (authed === null) return null; // avoid SSR mismatch
+  if (!authed)
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-6">
+        <form
+          onSubmit={handlePassSubmit}
+          className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-lg"
+        >
+          <h2 className="mb-4 text-center font-serif text-2xl">Enter passcode to continue</h2>
+          <input
+            type="password"
+            value={passValue}
+            onChange={(e) => setPassValue(e.target.value)}
+            className="w-full rounded-md border border-border bg-background/50 px-4 py-3 text-sm"
+            placeholder="Passcode"
+            autoFocus
+          />
+          {passError && <p className="mt-2 text-sm text-destructive">{passError}</p>}
+          <div className="mt-6 flex justify-end">
+            <button
+              type="submit"
+              className="rounded-full bg-primary px-6 py-2 text-sm font-medium text-primary-foreground"
+            >
+              Enter
+            </button>
+          </div>
+        </form>
+      </div>
+    );
 
   return (
     <main className="relative min-h-screen overflow-hidden">
