@@ -45,14 +45,9 @@ function Index() {
     }
   }, []);
 
-  // initialize auth state on client only
+  // always require pass on page load/refresh (do not persist auth)
   useEffect(() => {
-    try {
-      const ok = localStorage.getItem("site_authed") === "true";
-      setAuthed(ok);
-    } catch {
-      setAuthed(false);
-    }
+    setAuthed(false);
   }, []);
 
   const persist = (ids: string[]) => {
@@ -68,9 +63,6 @@ function Index() {
     if (e) e.preventDefault();
     setPassError(null);
     if (passValue === "foryou") {
-      try {
-        localStorage.setItem("site_authed", "true");
-      } catch {}
       setAuthed(true);
     } else {
       setPassError("Incorrect passcode");
